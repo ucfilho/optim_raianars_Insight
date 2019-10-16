@@ -65,8 +65,8 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
   BEST=best
   FOBEST=fobj_best
     
-  print("parte 6=",BEST)
-  print("parte 7=",fobj_best)
+  #print("parte 6=",BEST)
+  #print("parte 7=",fobj_best)
 
   XY= np.c_[X,y] #concatena x e y em 2 colunas            
   XYsorted = XY[XY[:,-1].argsort()] #Ordena a partir da last col(Y) for all row
