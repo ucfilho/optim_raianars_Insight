@@ -14,6 +14,8 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
   fitness = np.asarray([fobj(ind) for ind in X])
   best_idx = np.argmin(fitness)
   best = X[best_idx]
+  print(len(its))
+  print(len(popsize))
   for i in range(its):
     for j in range(popsize):
       
@@ -25,10 +27,10 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       
       #print(Num)
       for k in range(Num):
-        if(mutant>MAX[k]):
-          mutant=MAX[k]
-        if(mutant<MIN[k]):
-          mutant=MIN[k]
+        if(mutant[k]>MAX[k]):
+          mutant[k]=MAX[k]
+        if(mutant[k]<MIN[k]):
+          mutant[k]=MIN[k]
           
       cross_points = np.random.rand(dimensions) < crossp
       
