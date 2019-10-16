@@ -50,7 +50,7 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
           best_idx = j
           best = trial
             
-      print("parte 5=",best)
+      #print("parte 5=",best)
     
     fitness = np.asarray([fobj(ind) for ind in X])
 
