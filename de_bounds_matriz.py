@@ -3,7 +3,7 @@ import numpy as np
 def de(bounds, mut, crossp, popsize, its,fobj,X):
     
   Num=len(bounds)
-  print("parte 1",Num)
+  #print("parte 1",Num)
   MAX=np.zeros(Num)
   MIN=np.zeros(Num)
   for i in range(Num):
@@ -13,8 +13,8 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
 
   dimensions = len(bounds)  
   
-  for i in range(Num):
-    bounds[i]=(MIN[i], MAX[i])
+  #for i in range(Num):
+  #  bounds[i]=(MIN[i], MAX[i])
 
   fitness = np.asarray([fobj(ind) for ind in X])
   best_idx = np.argmin(fitness)
@@ -25,6 +25,8 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       idxs = [idx for idx in range(popsize) if idx != j]
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
       mutant = a + mut * (b - c)
+        
+      print("parte 2=",mutant)
 
       for k in range(Num):
         if(mutant[k]>MAX[k]):
