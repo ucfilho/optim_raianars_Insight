@@ -14,8 +14,9 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
   fitness = np.asarray([fobj(ind) for ind in X])
   best_idx = np.argmin(fitness)
   best = X[best_idx]
-  print(len(its))
+  
   print(len(popsize))
+  print('====0====',X)
   for i in range(its):
     for j in range(popsize):
       
