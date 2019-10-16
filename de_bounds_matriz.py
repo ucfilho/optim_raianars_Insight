@@ -20,6 +20,8 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       idxs = [idx for idx in range(popsize) if idx != j]
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
       mutant = a + mut * (b - c)
+      
+      print(mutant)
 
       for k in range(Num):
         if(mutant[k]>MAX[k]):
