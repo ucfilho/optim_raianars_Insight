@@ -3,6 +3,7 @@ import numpy as np
 def de(bounds, mut, crossp, popsize, its,fobj,X):
     
   Num=len(bounds)
+  print("parte 1",Num)
   MAX=np.zeros(Num)
   MIN=np.zeros(Num)
   for i in range(Num):
