@@ -15,7 +15,7 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
   best_idx = np.argmin(fitness)
   best = X[best_idx]
   
-  print('====0====',X)
+  #print('====0====',X)
   for i in range(its):
     for j in range(popsize):
       
@@ -23,7 +23,7 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
       mutant = a + mut * (b - c)
       
-      print('===== 1 =====',mutant)
+      #print('===== 1 =====',mutant)
       
       #print(Num)
       for k in range(Num):
@@ -34,7 +34,7 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
           
       cross_points = np.random.rand(dimensions) < crossp
       
-      print('===== 2 =====',cross_points)
+      #print('===== 2 =====',cross_points)
       
       if not np.any(cross_points):
         cross_points[np.random.randint(0, dimensions)] = True
