@@ -21,12 +21,13 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
       mutant = a + mut * (b - c)
       print('=====',mutant)
-      print(Num)
+      #print(Num)
       for k in range(Num):
-        if(mutant[k,0]>MAX[k]):
-          mutant[k,0]=MAX[k]
-        if(mutant[k,0]<MIN[k]):
-          mutant[k,0]=MIN[k]
+        print(k)
+        if(mutant[k]>MAX[k]):
+          mutant[k]=MAX[k]
+        if(mutant[k]<MIN[k]):
+          mutant[k]=MIN[k]
           
       cross_points = np.random.rand(dimensions) < crossp
       
