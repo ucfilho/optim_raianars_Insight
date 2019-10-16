@@ -24,10 +24,10 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       #print(Num)
       for k in range(Num):
         print(k)
-        if(mutant[k]>MAX[k]):
-          mutant[k]=MAX[k]
-        if(mutant[k]<MIN[k]):
-          mutant[k]=MIN[k]
+        if(mutant>MAX[k]):
+          mutant=MAX[k]
+        if(mutant<MIN[k]):
+          mutant=MIN[k]
           
       cross_points = np.random.rand(dimensions) < crossp
       
