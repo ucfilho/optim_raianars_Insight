@@ -28,11 +28,12 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
           mutant[k]=MIN[k]
           
       cross_points = np.random.rand(dimensions) < crossp
+      
       if not np.any(cross_points):
         cross_points[np.random.randint(0, dimensions)] = True
 
       trial = np.where(cross_points, mutant, X[j,:])
-
+      
 
       f = fobj(trial)
       if f < fitness[j]:
