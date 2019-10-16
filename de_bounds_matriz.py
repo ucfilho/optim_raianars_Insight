@@ -39,8 +39,8 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
         cross_points[np.random.randint(0, dimensions)] = True
 
       trial = np.where(cross_points, mutant, X[j,:])
-      print("parte 3=",trial)
-      print("parte 4=",cross_points)
+      #print("parte 3=",trial)
+      #print("parte 4=",cross_points)
 
       f = fobj(trial)
       if f < fitness[j]:
@@ -49,7 +49,9 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
         if f < fitness[best_idx]:
           best_idx = j
           best = trial
-
+            
+      print("parte 5=",best)
+    
     fitness = np.asarray([fobj(ind) for ind in X])
 
   fitness = np.asarray([fobj(ind) for ind in X])
