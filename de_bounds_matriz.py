@@ -73,3 +73,5 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
   x=XYsorted[:,0:Num]
   XY=XYsorted
   BEST_XY =np.append(BEST,FOBEST)
+
+  return X,BEST,FOBEST,XY,BEST_XY
