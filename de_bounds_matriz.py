@@ -26,7 +26,7 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
       mutant = a + mut * (b - c)
         
-      print("parte 2=",mutant)
+      #print("parte 2=",mutant)
 
       for k in range(Num):
         if(mutant[k]>MAX[k]):
@@ -39,7 +39,8 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
         cross_points[np.random.randint(0, dimensions)] = True
 
       trial = np.where(cross_points, mutant, X[j,:])
-
+      print("parte 3=",trial)
+      print("parte 4=",cross_points)
 
       f = fobj(trial)
       if f < fitness[j]:
