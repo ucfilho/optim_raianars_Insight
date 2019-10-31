@@ -6,6 +6,10 @@ from random import randint
 from scipy import optimize
 import pandas as pd
 
+import Function
+import de_soma_Insight
+import de_bounds_matriz
+
 def AvaliaX(X):
   nrow,ncol=X.shape
   fitness = np.asarray([Fun(ind) for ind in X])
