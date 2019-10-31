@@ -82,11 +82,12 @@ def ANN_ycal(syn0,syn1,X_train):
   y_calc=np.reshape(l2,len(l2))
   return y_calc
 
-def Classifica(ycalc):
-  n=len(ycalc)
+def Classifica(y):
+  n=len(y)
+  yc=np.zeros(n)
   for i in range(n):
-    if(ycalc[i]<0):
-      ycalc[i]=-1
+    if(y[i]<0):
+      yc[i]=-1
     else:
-      ycalc[i]=1
-  return ycalc
+      yc[i]=1
+  return yc
