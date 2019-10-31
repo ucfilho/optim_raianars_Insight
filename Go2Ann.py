@@ -56,10 +56,9 @@ def GetMatriz(ANN):
   A=np.zeros((nrow,1));
   A[:,0]=np.copy(syn1.dropna());
   syn1=np.copy(A);#print(pd.DataFrame(syn1_F))
-  #X_max=np.array(ANN.iloc[:,ncol-1].dropna());#print(X_max_F)
-  #X_min=np.array(ANN.iloc[:,ncol-2].dropna());#print(X_min_F)
-  X_max=np.array(ANN.iloc[:,ncol].dropna());#print(X_max_F)
-  X_min=np.array(ANN.iloc[:,ncol-1].dropna());#print(X_min_F)
+  row,col=ANN.shape
+  X_max=np.array(ANN.iloc[:,col].dropna());#print(X_max_F)
+  X_min=np.array(ANN.iloc[:,col-1].dropna());#print(X_min_F)
 
   return syn0,syn1,X_max,X_min
 
