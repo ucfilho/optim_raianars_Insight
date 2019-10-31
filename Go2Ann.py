@@ -10,11 +10,10 @@ import Function
 import de_soma_Insight
 import de_bounds_matriz
 
-global Function
-
 def AvaliaX(X):
+  global Function
   nrow,ncol=X.shape
-  fitness = np.asarray([Fun(ind) for ind in X])
+  fitness = np.asarray([Function.Fun(ind) for ind in X])
   best_idx = np.argmin(fitness)
   best = X[best_idx]
   fobj_best = fitness[best_idx]
