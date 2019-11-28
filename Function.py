@@ -12,20 +12,14 @@ def Fun2Choice(x,fchoice):
     
     fun=0
     if(fchoice='Rosenbrock'):
-        MAX=np.repeat(10,dim)
-        MIN=np.repeat(-10,dim)
         for i in range(len(x)-1):
             fun = 100*(x[i]-x[i-1]**2)**2 + (1-x[i-1])**2
         return fun 
     
     if(fchoice='Sum_of_different_powers'):
-        MAX=np.repeat(1,dim)
-        MIN=np.repeat(-1,dim)
         return sum([abs(x[i])**(i+2) for i in range(len(x))])
 
     if(fchoice='Sphere'):
-        MAX=np.repeat(5.12,dim)
-        MIN=np.repeat(-5.12,dim)
         return sum([i**2 for i in x])
 
     if(fchoice='Easom'):
@@ -64,8 +58,6 @@ def Fun2Choice(x,fchoice):
 ### Funções multimodais
 
     if(fchoice='Rastrigin'):
-      MAX=np.repeat(5.12,dim)
-      MIN=np.repeat(-5.12,dim)
       return 10 * len(x) + sum([np.power(i, 2.) - 10 * np.cos(2 * np.pi * i) for i in x]) 
     
     if(fchoice='Shubert'):
@@ -80,8 +72,6 @@ def Fun2Choice(x,fchoice):
         return (sum1*sum2+186.7309) 
 
     if(fchoice='Schwefel'):
-        MAX=np.repeat(500,dim)
-        MIN=np.repeat(-500,dim)
         summ=0
         for i in range(len(x)):
             new=x[i]*np.sin((abs(x[i]))**0.5)
@@ -89,8 +79,6 @@ def Fun2Choice(x,fchoice):
         return (418.982887272433799807913601398*len(x)-summ)
  
     if(fchoice='Ackley'):
-        MAX=np.repeat(32,dim)
-        MIN=np.repeat(-32,dim)
         return -20*exp(-0.2*sqrt(1/len(x)*sum([i**2 for i in x]))) - \
                exp(1/len(x)*sum([cos(2*np.pi*i) for i in x])) + 20 + exp(1)
 
@@ -102,8 +90,6 @@ def Fun2Choice(x,fchoice):
                             sqrt(sum([i**2 for i in x]))/pi))) + 1)**0.1, 7)
 
     if(fchoice='Michalewicz'):
-        MAX=np.repeat(np.pi,dim)
-        MIN=np.repeat(0,dim)
         return -sum([sin(x[i])*sin((i)*x[i]**2/pi)**20 for i in range(len(x))])
 
     if(fchoice='Drop_wave'):
