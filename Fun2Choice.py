@@ -8,7 +8,7 @@ from math import *
 ### Funções unimodais
     
 '''Rosembrock Function'''
-def Fun2Choice(x,fchoice):
+def Fx(x,fchoice):  
     
     fun=0
     if(fchoice='Rosenbrock'):
