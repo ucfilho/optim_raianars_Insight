@@ -100,5 +100,5 @@ def Intervalo(dim,fchoice):
         MIN=np.repeat(-10,dim) # precisa trocar
 
 
-    return MIN,MAX  #  MIN,MAX=Go2MinMax(dim,fchoice)
+    return MIN,MAX  #  MIN,MAX=Go2MinMax.Intervalo(dim,fchoice)
 
