@@ -14,7 +14,13 @@ def Intervalo(dim,fchoice):
         MAX=np.repeat(10,dim)
         MIN=np.repeat(-10,dim)
 
-    
+    if(fchoice=='Noisy_Quartic'):
+        MAX=np.repeat(1.28,dim)
+        MIN=np.repeat(-1.28,dim)
+         
+    if(fchoice=='Schwefel_222'):
+        MAX=np.repeat(10,dim)
+        MIN=np.repeat(-10,dim)
     if(fchoice=='Sum_of_different_powers'):
         MAX=np.repeat(1,dim)
         MIN=np.repeat(-1,dim)
@@ -112,8 +118,8 @@ def Intervalo(dim,fchoice):
         MIN=np.repeat(-600,dim)     
       
     if(fchoice=='HappyCat'):
-        MAX=np.repeat(5,dim) 
-        MIN=np.repeat(-5,dim)     
+        MAX=np.repeat(2,dim) 
+        MIN=np.repeat(-2,dim)     
      
     if(fchoice=='Periodic'):
         MAX=np.repeat(2,dim) 
