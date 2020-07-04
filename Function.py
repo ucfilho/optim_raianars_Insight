@@ -211,7 +211,8 @@ def Salomon(x):
   sqrtsx2=sumx2**0.5
   return 1-np.cos(2*np.pi*sqrtsx2)+(0.1 * sqrtsx2)
 # global minimum 0  at x=(0,0,...,0) 
-
+'''
+'''
 # Griewank Function
 def Griewank(x):
   prod_cosx_i05=1
