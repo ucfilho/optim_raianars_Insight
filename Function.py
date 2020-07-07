@@ -20,7 +20,7 @@ def Noisy_Quartic(x):
 
 def Schwefel_222(x):
     sumx=0
-    prodx=0
+    prodx=1
     i=0
     for k in x:
         i=i+1
