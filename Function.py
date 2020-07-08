@@ -159,7 +159,9 @@ def Styblinskitank(x):
     sumx1=sumx1+i
     sumx2=sumx2+i**2
     sumx4=sumx4+i**4
-  return sumx4-16*sumx2+5*sumx1
+  fun= (sumx4-16*sumx2+5*sumx1)/2
+  return fun
+
 # global minimum −39.16599∗n at x=(−2.903534,…,−2.903534) 
 # Not Convex it is usually evaluated  xi =[(-5,5),..(-5,5)]
 
