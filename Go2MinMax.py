@@ -32,10 +32,16 @@ def Intervalo(dim,fchoice):
     if(fchoice=='Sum_of_different_powers'):
         MAX=np.repeat(1,dim)
         MIN=np.repeat(-1,dim)
-
+         
+    '''
     if(fchoice=='Sphere'):
         MAX=np.repeat(5.12,dim)
         MIN=np.repeat(-5.12,dim)
+    ''' 
+   
+    if(fchoice=='Sphere'):
+        MAX=np.repeat(100,dim)
+        MIN=np.repeat(-100,dim)
       
     if(fchoice=='Step'):
         MAX=np.repeat(100,dim)
