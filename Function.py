@@ -6,6 +6,110 @@ from math import *
 
 ################################### 
 
+def Shekel(x):
+    a=np.array([[-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32],
+                [-32,-32,-32,-32,-32,-16,-16,-16,-16,-16,0,0,0,0,0,16,16,16,16,16,32,32,32,32,32]])  
+    sumj = 0
+    for j in range(2):
+      sumi = 0
+      for i in range(len(x)):
+        sumi = sumi + (x[i]+a[j,i])**6
+      sumj = sumj + 1.0 / (j+ sumi)
+    fun =1.0 / (1/500.0+ sumj)  
+    return fun
+    # Shekel's Foxholes Function 
+    # Range of initial points: -65.536 <= xj <= 65.536 , j=1,2
+    # Global minima: (x1,x2)=(-31.97833,-31.97833)
+    # f(x1,x2)=0.998003837794449325873406851315 obs dim =30 optimum close to zero..
+    
+def PenaltyOne(x):
+    n = len(x); a = 10 ; k = 100 ; m =4; pi = np.pi;
+    sumy=0
+    sumu=0
+    
+    for i in range((n-1)):
+        yi = 1 + 1.0/4*(x[i]+1)
+        yip = 1 + 1.0/4*(x[i+1]+1)
+        sumy=sumy+(yi-1)**2*(1+10*(np.sin(pi*yip))**2)
+        if( x[i] > a):
+            sumu = sumu + k*(x[i]-a)**m
+        elif( x[i] < -a):
+            sumu = sumu + k*(-x[i]-a)**m
+        else:
+            sumu = sumu # it could be done without put this case
+        
+    y0 = 1 + 1.0/4*(x[0]+1)
+    yn = 1 + 1.0/4*(x[n-1]+1)
+    fun = pi/n*(10*(np.sin(pi*y0))**2 + sumy + (yn-1)**2 ) + sumu 
+    return fun
+
+def PenaltyTwo(x):
+    n = len(x); a = 5 ; k = 100 ; m =4; pi = np.pi;
+    sumx=0
+    sumu=0
+    
+    for i in range((n-1)):
+        sumx=sumx+   (x[i]-1)**2*(1+(np.sin(3*pi*x[i+1]))**2)
+        if( x[i] > a):
+            sumu = sumu + k*(x[i]-a)**m
+        elif( x[i] < -a):
+            sumu = sumu + k*(-x[i]-a)**m
+        else:
+            sumu = sumu # it could be done without put this case
+        
+    fun = 0.1*( (np.sin(3*pi*x[0]))**2 + sumx + (x[n-1]-1)**2*(1+(np.sin(2*pi*x[n-1]))**2) ) + sumu 
+    return fun
+# f(x)=0 x=(0,0) [−1.28, 1.28]
+
+def Kowalik(x):
+    n = 11; 
+    a= [0.1957,0.1947,0.1735,0.1600,   0.0844,0.0627,0.0456,0.0342,    0.0323,0.0235,0.0246]
+    b=[0.25, 0.5, 1,2,4,6,8,10,12,14,16]
+    sumx=0
+    
+    for i in range(n):
+        bi = 1/b[i]
+        upfrac = x[0]*(bi**2+bi*x[1])
+        downfrac = bi**2+bi*x[2]+x[3]
+        sumx=sumx+ (a[i] -upfrac/downfrac)**2
+ 
+    fun = sumx 
+    return fun
+# f(x)=0 x=(0,0) [−1.28, 1.28]
+
+
+def Michalewicz(x):
+    return -sum([sin(x[i])*sin((i+1)*x[i]**2/pi)**20 for i in range(len(x))])
+#fx=-9.66015 d=10 [0,pi]
+
+def Michalewicz_New(x):
+    Num=len(x)
+    S=0
+    for i in range(Num):
+        S=S+np.sin(x[i])*np.sin((i+1)*x[i]**2/np.pi)**20 
+    return S
+#fx=-9.66015 d=10 [0,pi]
+
+def Bent_Cigar(x):
+
+  soma=0
+  Num=len(x)
+
+  for i in range(1,Num):
+    soma=soma+x[i]**2
+  soma=soma*10**6+x[0]**2
+  return soma
+# f(x)=0 , x=(0,0,...,0) [-100,100]
+
+def Fake_Rosenbrock(x):
+    fun=0
+    Num=len(x)-1
+    for i in range(Num):
+        fun = 100*(x[i]-x[i-1]**2)**2 + (1-x[i-1])**2
+    return fun 
+# Global Minimum: 0 , domain=[-30,30]
+
+
 def Noisy_Quartic(x):
     sumx4=0
     i=0
@@ -69,10 +173,6 @@ def sum_squares_function(x): #gráfico parecido c a espera
     return sum([(i+1)*x[i]**2 for i in range(len(x))])
 # f(x)=0 x=(0,0) , d=[-10,10]
 
-def dixon_price_function(x): # parece sum_of_different_powers_function
-    return (x[0] - 1)**2 + sum([(i+1)*(2*x[i]**2 - x[i-1])**2
-                                for i in range(1, len(x))])
-# f(x)=0 xi=2^(-(2^i - 2)/2^i   d= [-10,10]
 
 # Zakharov Function
 def Zakharov(x):
@@ -133,9 +233,6 @@ def Ackley(x):
            exp(1/len(x)*sum([cos(2*np.pi*i) for i in x])) + 20 + exp(1)
  # f(x)=0 x=(0,0) [-32, 32]
 
-def Michalewicz(x):
-    return -sum([sin(x[i])*sin((i)*x[i]**2/pi)**20 for i in range(len(x))])
-#fx=-9.66015 d=10 [0,pi]
 
 # Shubert3 function
 def Shubert3(x):
@@ -161,7 +258,6 @@ def Styblinskitank(x):
     sumx4=sumx4+i**4
   fun= (sumx4-16*sumx2+5*sumx1)/2
   return fun
-
 # global minimum −39.16599∗n at x=(−2.903534,…,−2.903534) 
 # Not Convex it is usually evaluated  xi =[(-5,5),..(-5,5)]
 
@@ -270,6 +366,40 @@ def Shubert(x):
 #  Global minimum The function has 18 global minima  equal -186.7309
 #  Not Convex it is usually evaluated  xi =[(-10,10),..,(-10,10)]
 
+def Drop_wave(x):
+    return -(1 + cos(12*sqrt(sphere_function(x))))/(0.5*sphere_function(x) + 2)
 
+======================================
 
+fixed dimention
 
+def Easom(x):
+    return -cos(x[0])*cos(x[1])*exp(-(x[0] - pi)**2 - (x[1] - pi)**2)
+# f(x)=-1 x=(pi,pi) [-100,100]
+
+def Booth(x):
+    return (x[0] + 2*x[1] - 7)**2 + (2*x[0] + x[1] - 5)**2
+# f(x)=0 x=(1,3) [-10,10]
+    
+def Beale(x):
+    return (1.5 - x[0] + x[0]*x[1])**2 + (2.25 - x[0] + x[0]*x[1]**2)**2 + \
+           (2.625 - x[0] + x[0]*x[1]**3)**2
+
+def dixon_price_function(x): # parece sum_of_different_powers_function
+    return (x[0] - 1)**2 + sum([(i+1)*(2*x[i]**2 - x[i-1])**2
+                                for i in range(1, len(x))])
+# f(x)=0 xi=2^(-(2^i - 2)/2^i   d= [-10,10]
+
+def Six_hump_camel(x): 
+    return (4 - 2.1*x[0]**2 + (x[0]**4)/3)*x[0]**2 + x[0]*x[1]\
+           + (-4 + 4*x[1]**2)*x[1]**2
+#fx=-1.0316 ; x=(+-0.0898,+-0.7126) x1 ∈ [-3, 3], x2 ∈ [-2, 2]. 
+
+def Cross_in_tray(x):
+    return round(-0.0001*(abs(sin(x[0])*sin(x[1])*exp(abs(100 -
+                            sqrt(sum([i**2 for i in x]))/pi))) + 1)**0.1, 7)
+#fx--2.06261 x=( +/-1.3491.+/-1.3491) [-10,10]
+
+def Bukin(x):
+    return 100*sqrt(abs(x[1]-0.01*x[0]**2)) + 0.01*abs(x[0] + 10)
+# f(X)=0, x=(-10,1)    x_1∈[-15.-5]  x2 ∈ [-3, 3]. 
