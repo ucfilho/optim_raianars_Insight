@@ -116,8 +116,8 @@ def Intervalo(dim,fchoice):
         MIN=np.repeat(0,dim)
 
     if(fchoice=='Drop_wave'):
-        MAX=np.repeat(10,dim) # precisa trocar
-        MIN=np.repeat(-10,dim) # precisa trocar
+        MAX=np.repeat(5.2,dim) # precisa trocar
+        MIN=np.repeat(-5.2,dim) # precisa trocar
       
     if(fchoice=='Six_hump_camel'):
         MAX=np.repeat(10,dim) # precisa trocar
