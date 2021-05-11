@@ -367,7 +367,7 @@ def Shubert(x):
 #  Not Convex it is usually evaluated  xi =[(-10,10),..,(-10,10)]
 
 def Drop_wave(x):
-    return -(1 + cos(12*sqrt(sphere_function(x))))/(0.5*sphere_function(x) + 2)
+    return -(1 + cos(12*sqrt(Sphere(x))))/(0.5*Sphere(x) + 2)
 
 #======================================
 
