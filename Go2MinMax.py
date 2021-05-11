@@ -78,8 +78,8 @@ def Intervalo(dim,fchoice):
         MIN=np.repeat(-10,dim) # precisa trocar
     
     if(fchoice=='dixon_price_function'):#sum_of_different_powers_function
-        MAX=np.repeat(10,dim) # precisa trocar
-        MIN=np.repeat(-10,dim) # precisa trocar
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(-10,dim) 
     
     if(fchoice=='three_hump_camel_function'):#sum_of_different_powers_function
         MAX=np.repeat(10,dim) # precisa trocar
@@ -202,7 +202,9 @@ def Intervalo(dim,fchoice):
         MAX=np.repeat(65.536,dim) 
         MIN=np.repeat(-65.536,dim)
 
-
+    if(fchoice=='Alpinen2'):
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(0,dim) 
 
     return MIN,MAX  #  MIN,MAX=Go2MinMax.Intervalo(dim,fchoice)
 
