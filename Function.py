@@ -369,7 +369,7 @@ def Shubert(x):
 def Drop_wave(x):
     return -(1 + cos(12*sqrt(sphere_function(x))))/(0.5*sphere_function(x) + 2)
 
-======================================
+#======================================
 
 fixed dimention
 
