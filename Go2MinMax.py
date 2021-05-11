@@ -48,8 +48,8 @@ def Intervalo(dim,fchoice):
         MIN=np.repeat(-100,dim)      
 
     if(fchoice=='Easom'):
-        MAX=np.repeat(10,dim) # precisa trocar
-        MIN=np.repeat(-10,dim) # precisa trocar
+        MAX=np.repeat(100,dim) 
+        MIN=np.repeat(-100,dim) 
 
     if(fchoice=='Booth'):
         MAX=np.repeat(10,dim) # precisa trocar
@@ -202,9 +202,7 @@ def Intervalo(dim,fchoice):
         MAX=np.repeat(65.536,dim) 
         MIN=np.repeat(-65.536,dim)
 
-    if(fchoice=='Alpinen2'):
-        MAX=np.repeat(10,dim) 
-        MIN=np.repeat(0,dim) 
+
 
     return MIN,MAX  #  MIN,MAX=Go2MinMax.Intervalo(dim,fchoice)
 
