@@ -1,7 +1,13 @@
-def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
-  global fields, Go2Ann, Fc
-  global syn0_F,syn1_F,X_max_F,X_min_F
-  global syn0_CR,syn1_CR,X_max_CR,X_min_CR
+from AvaliaX import AvaliaX
+#from Go2Ann import Go2Ann
+import Go2Ann
+import pandas as pd
+import numpy as np
+
+def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
+                syn1_F,X_max_F,X_min_F,syn0_CR,syn1_CR,X_max_CR,
+                X_min_CR,Fc,fields,Fun):
+  
   nrow,ncol=X.shape
   FOBESTm=1e99
   Fo=MAT_INDo[0,6]    # VALOR Fo   
@@ -10,8 +16,9 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
   MAT_IND=np.zeros((1,QUANT))
 
   REF=0.1 # REFERENCIA DE DIFERENCAS ENTRE OS ELEMENTOS
+  Fitness = np.asarray([Fun(ind) for ind in X])
+  XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fitness)
   
-  XY,BEST_XY,BEST,FOBEST=AvaliaX(X)
   soma=0
   for j in range(ncol):
     for i in range(nrow):
@@ -78,30 +85,40 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
 
   MAT_IND[0,6]=Fo
   MAT_IND[0,7]=CRo
-
-  # comecando a rede!!!
-  #['DI RELATIVO', 'FRAC Its', 'Fo', 'CRo'] VALORES A USAR
-  #MAT_IND[0,1]=DIr # dispersao relativa
-  #MAT_IND[0,2]=SOMA/TOTAL # fracao relativa
-  #MAT_IND[0,6]=Fo
-  #MAT_IND[0,7]=CRo
   
   x_train=MAT_INDo[0,[1,2,6,7]]
   x_train=pd.DataFrame(x_train).T
 
-  nrow,ncol=ANN_F.shape
+  #nrow,ncol=ANN_F.shape
   x_train=Go2Ann.Normatiza(x_train,X_max_F,X_min_F)
   y_calc_F=Go2Ann.ANN_ycal(syn0_F,syn1_F,x_train)
   y_calc_CR=Go2Ann.ANN_ycal(syn0_CR,syn1_CR,x_train)
-  #print(x_train);
-  #print(y_calc);
   y_cod_F=Go2Ann.Classifica(y_calc_F)
   y_cod_CR=Go2Ann.Classifica(y_calc_CR)
-
+  
+  # print('y_cod_CR=',y_cod_CR,'y_cod_F=',y_cod_F)
+  
   Fd=DIr
   CRa=np.copy(CRo)
   Fa=np.copy(Fo)
-
+  '''
+  if(y_cod_F>0):
+    Fo=Fo*(1+Fd) #Fo=Fo+Fc
+  else:
+    Fo=Fo*(1-Fd) #Fo=Fo-Fc
+    
+  if(y_cod_CR>0):
+    CRo=CRo*(1+Fd) #CRo=CRo+Fc
+  else:
+    CRo=CRo*(1-Fd);#CRo=CRo-Fc
+  
+  if(CRo<Fc):CRo=Fc 
+  if(Fo<Fc):Fo=Fc
+  if(CRo>1):CRo=1
+  if(CRo< Fc): CRo=Fc
+  CRo=(2*CRo+CRa)/3 # para suavizar
+  Fo=(3*Fo+Fa)/4 # para suavizar
+  '''
   if(y_cod_F>0):
     Fo=Fo*(1+Fd) #Fo=Fo+Fc
     Fo=(3*Fo+Fa)/4 # para suavizar
@@ -131,9 +148,7 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
     Fo=1
   
   CRo=(2*CRo+CRa)/3 # para suavizar
-  
   MAT_IND[0,15]=Fo # valor de F que sai da rede
   MAT_IND[0,16]=CRo # valor de CR que sai da rede
-  #print(confusion_matrix(y_quali,y_obs_test))
   
   return MAT_IND
