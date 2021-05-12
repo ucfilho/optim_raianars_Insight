@@ -369,6 +369,10 @@ def Shubert(x):
 def Drop_wave(x):
     return -(1 + cos(12*sqrt(Sphere(x))))/(0.5*Sphere(x) + 2)
 
+def Schwefel_223(x):
+        return sum([i**10 for i in x])
+# f(x)=0 x=(0,0) [-5.12,5.12]
+
 #======================================
 
 #fixed dimention
