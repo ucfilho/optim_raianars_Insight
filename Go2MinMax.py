@@ -148,8 +148,8 @@ def Intervalo(dim,fchoice):
         MIN=np.repeat(-2,dim)     
      
     if(fchoice=='Periodic'):
-        MAX=np.repeat(2,dim) 
-        MIN=np.repeat(-2,dim)     
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(-10,dim)     
       
     if(fchoice=='Qing'):
         MAX=np.repeat(500,dim) 
