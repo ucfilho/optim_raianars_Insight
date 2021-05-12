@@ -371,7 +371,13 @@ def Drop_wave(x):
 
 def Schwefel_223(x):
         return sum([i**10 for i in x])
-# f(x)=0 x=(0,0) [-5.12,5.12]
+# f(x)=0 x=(0,0) [-10,10]
+
+
+def dixon_price_function(x): # parece sum_of_different_powers_function
+    return (x[0] - 1)**2 + sum([(i+1)*(2*x[i]**2 - x[i-1])**2
+                                for i in range(1, len(x))])
+# f(x)=0 xi=2^(-(2^i - 2)/2^i   d= [-10,10]
 
 #======================================
 
@@ -389,10 +395,6 @@ def Beale(x):
     return (1.5 - x[0] + x[0]*x[1])**2 + (2.25 - x[0] + x[0]*x[1]**2)**2 + \
            (2.625 - x[0] + x[0]*x[1]**3)**2
 
-def dixon_price_function(x): # parece sum_of_different_powers_function
-    return (x[0] - 1)**2 + sum([(i+1)*(2*x[i]**2 - x[i-1])**2
-                                for i in range(1, len(x))])
-# f(x)=0 xi=2^(-(2^i - 2)/2^i   d= [-10,10]
 
 def Six_hump_camel(x): 
     return (4 - 2.1*x[0]**2 + (x[0]**4)/3)*x[0]**2 + x[0]*x[1]\
