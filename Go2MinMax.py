@@ -211,7 +211,7 @@ def Intervalo(dim,fchoice):
      '''    
      if(fchoice=='Kowalik'):
         MAX=np.repeat(5,dim) 
-        MIN=np.repeat(-5,dim) '''
+        MIN=np.repeat(-5,dim)'''
 
 
 
