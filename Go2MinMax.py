@@ -33,6 +33,8 @@ def Intervalo(dim,fchoice):
         MAX=np.repeat(1,dim)
         MIN=np.repeat(-1,dim)
          
+
+         
     '''
     if(fchoice=='Sphere'):
         MAX=np.repeat(5.12,dim)
@@ -201,6 +203,15 @@ def Intervalo(dim,fchoice):
         pi2=2*np.pi
         MAX=np.repeat(65.536,dim) 
         MIN=np.repeat(-65.536,dim)
+  
+
+    if(fchoice=='Schwefel_223'):
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(-10,dim) 
+     '''    
+     if(fchoice=='Kowalik'):
+        MAX=np.repeat(5,dim) 
+        MIN=np.repeat(-5,dim) '''
 
 
 
