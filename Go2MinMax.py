@@ -207,7 +207,11 @@ def Intervalo(dim,fchoice):
     if(fchoice=='Schwefel_223'):
         MAX=np.repeat(10,dim) 
         MIN=np.repeat(-10,dim) 
-
+ 
+    if(fchoice=='Bent_Cigar'):
+        MAX=np.repeat(100,dim) 
+        MIN=np.repeat(-100,dim)
+      
 
 
     return MIN,MAX  #  MIN,MAX=Go2MinMax.Intervalo(dim,fchoice)
