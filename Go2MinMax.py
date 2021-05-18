@@ -160,8 +160,8 @@ def Intervalo(dim,fchoice):
         MIN=np.repeat(-2,dim)     
       
     if(fchoice=='Salomon'):
-        MAX=np.repeat(2,dim) 
-        MIN=np.repeat(-2,dim)     
+        MAX=np.repeat(100,dim) 
+        MIN=np.repeat(-100,dim)     
  
     if(fchoice=='Styblinskitank'):
         MAX=np.repeat(5,dim) 
