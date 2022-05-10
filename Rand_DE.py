@@ -80,15 +80,3 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
   
   
   return x,BEST,FOBEST,XY,BEST_XY
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
