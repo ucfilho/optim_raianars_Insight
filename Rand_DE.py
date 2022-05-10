@@ -1,10 +1,8 @@
 import numpy as np
 
-def de(bounds, mut, crossp, popsize, its,fobj,X):
+def de(bounds, F_interval , CR_interval, popsize, its,fobj,X):
   
-  CR_interval = [0,1]
-  F_interval = [0.1,2]
-  
+
   Num=len(bounds)
   dimensions = len(bounds)  
   MAX=np.zeros(Num)
