@@ -122,5 +122,7 @@ def de(MAX,MIN, mut, crossp, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
   for i in range(popsize):
     for j in range(Num):
         XOLD[i,j]=np.copy(X[i,j])
-  
+        
+  mi_F = mi_F_gen   ; mi_CR = mi_CR_gen
+
   return XOLD,BEST,FOBEST,XY,BEST_XY,SOMA,SF,mi_F,SCR,mi_CR
