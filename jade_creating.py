@@ -65,9 +65,10 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
 
   fitness = np.asarray([fobj(ind) for ind in X])
   ind =np.argpartition(fitness, -best_number)[-best_number:] # find index of best p*popsize
-  # best_idx = np.argmin(fitness) # not using the best anymore but a random best
-  best_idx = random.choice(ind) # index of the best in p*popsize (random best)
+  best_idx = np.argmin(fitness) # not using the best anymore but a random best
   best = X[best_idx]
+  best_idx = random.choice(ind) # index of the best in p*popsize (random best)
+  best_selection = X[best_idx]
   
   Num=len(X[0,:]) # Alterando Num dimensao da solucao popsize
   for i in range(its):
@@ -81,7 +82,7 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
       crossp = CR_values[i]
       idxs = [idx for idx in range(popsize) if idx != j]
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
-      mutant = a + mut * (b - c)
+      mutant = X[j,:]+mut*(best_selection-X[j,:]) + mut * (b - c)
 
       for k in range(Num):
         if(mutant[k]>MAX[k]):
