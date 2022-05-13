@@ -45,7 +45,7 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
   F_values[third:] = np.random.normal(mi_F_gen , 0.1, two_third)
   CR_values = np.random.normal(mi_CR_gen , 0.1,popsize )
 
-  
+  Num = len(X[0,:])
   XOLD=np.copy(X)
   X=np.zeros((popsize,Num)) 
     
