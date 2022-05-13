@@ -11,7 +11,7 @@ import numpy as np
 import scipy.stats
 import random
 
-def de(MAX,MIN, mut, crossp, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
+def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
   # you need to return to main code 
   #       return XOLD,BEST,FOBEST,XY,BEST_XY,SOMA,SF,mi_F,SCR,mi_CR
   # main code need to define before change generations 
