@@ -27,7 +27,7 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
   if (Lehmer == 0):
     mi_F_gen = mi_F
   else:
-    Lehmer = np.dot(SF)/Lehmer
+    Lehmer = np.dot(SF,SF)/Lehmer
     mi_F_gen = (1-c)*mi_F + c* Lehmer 
   if(sum(SCR)==0):
     mi_CR_gen = mi_CR
