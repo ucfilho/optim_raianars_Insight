@@ -37,6 +37,12 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
 
   
   F_values = scipy.stats.cauchy.rvs(loc=mi_F_gen, scale=0.1, size=popsize)
+  for ki in range(popsize):
+    if(F_values[ki]<0):
+        F_values[ki]=0.0
+    if(F_values[ki]>1):
+        F_values[ki]=1.0
+        
   #F_values=np.zeros(popsize)
   #third = int(popsize/3)-1
   #F_values[0:third] = np.random.uniform(0.0, 1.2, third)
