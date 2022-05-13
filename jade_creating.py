@@ -40,7 +40,8 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
   third = int(popsize/3)-1
   #F_values[0:third] = np.random.uniform(0.0, 1.2, third+1)
   F_values[0:third] = np.random.uniform(0.0, 1.2, third)
-  two_third = popsize-(third+1)
+  #two_third = popsize-(third+1)
+  two_third = popsize- third
   F_values[third:] = np.random.normal(mi_F_gen , 0.1, two_third)
   CR_values = np.random.normal(mi_CR_gen , 0.1,popsize )
 
