@@ -36,7 +36,7 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
     mi_CR_gen = (1-c)*mi_CR + c* np.mean(SCR)
 
   
-  F_values = scipy.stats.cauchy.rvs(loc=mi_F, scale=0.1, size=popsize)
+  F_values = scipy.stats.cauchy.rvs(loc=mi_F_gen, scale=0.1, size=popsize)
   #F_values=np.zeros(popsize)
   #third = int(popsize/3)-1
   #F_values[0:third] = np.random.uniform(0.0, 1.2, third)
