@@ -21,7 +21,8 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
   # mi_CR = 0.9; mi_F = 0.5; 
   # you need to have mi_F = 0.5, mi_F = 0.5 before initialize generations
   
-  p = 0.1; 
+  p = 0.1; c = 0.67
+  # c = 0.67 # c is a number between 0 and 1 (filter of result)
   best_number = int(p*popsize)
   Lehmer = sum(SF)
   if (Lehmer == 0):
@@ -34,7 +35,7 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
   else:
     mi_CR_gen = (1-c)*mi_CR + c* np.mean(SCR)
 
-  c = 0.67 # c is a number between 0 and 1 (filter of result)
+  
   #F_values = scipy.stats.cauchy.rvs(loc=mi_F, scale=0.1, size=popsize)
   F_values=np.zeros(popsize)
   third = int(popsize/3)-1
