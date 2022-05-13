@@ -98,7 +98,7 @@ def de(MAX,MIN, popsize, its,fobj,X,SOMA,TOTAL,SF,mi_F,SCR,mi_CR):
       if f < fitness[j]:
         fitness[j] = f
         X[j,:] = trial
-        SF.append(mut); SCR.append(CR) # new line to add vectors
+        SF.append(mut); SCR.append(crossp) # new line to add vectors
         if f < fitness[best_idx]:
           best_idx = j
           best = trial
