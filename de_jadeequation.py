@@ -34,7 +34,6 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
       
       idxs = [idx for idx in range(popsize) if idx != j]
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
-      print('======',X[j,:].shape,best_selection.shape,b.shape,c.shape,mut,'====')
       mutant = X[j,:]+mut*(best_selection-X[j,:]) + mut * (b - c)
       
       #print('===== 1 =====',mutant)
