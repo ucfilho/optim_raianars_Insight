@@ -12,7 +12,7 @@ import random
 
 def de(bounds, mut, crossp, popsize, its,fobj,X):
   
-  
+  p =0.1
   Num=len(bounds)
   dimensions = len(bounds)  
   MAX=np.zeros(Num)
@@ -20,7 +20,7 @@ def de(bounds, mut, crossp, popsize, its,fobj,X):
   for k in range(Num):
     MAX[k]=bounds[k][1]
     MIN[k]=bounds[k][0]
-
+  best_number = popsize*p
   fitness = np.asarray([fobj(ind) for ind in X])
   ind =np.argpartition(fitness, -best_number)[-best_number:] # find index of best p*popsize
   best_idx = np.argmin(fitness) # not using the best anymore but a random best
