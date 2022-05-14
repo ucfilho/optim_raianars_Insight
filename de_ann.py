@@ -70,8 +70,11 @@ def de(MAX,MIN, mut, crossp, popsize, its,fobj,X,SOMA,TOTAL):
         if f < fitness[best_idx]:
           best_idx = j
           best = trial
-
-    fitness = np.asarray([fobj(ind) for ind in X])
+            
+  fitness = np.asarray([fobj(ind) for ind in X])
+  best_idx = np.argmin(fitness)
+  best = X[best_idx]
+  fobj_best = fitness[best_idx]
 
   y=fitness
 
