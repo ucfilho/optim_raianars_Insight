@@ -122,7 +122,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
           r=np.random.random()
           test =r*(MAX[j]-MIN[j])+MIN[j]
           valor =(k+1) /(2*NP) *(test -best[j])
-          sigma= np.cos(np.pi*valor)
+          sigma= np.abs(np.cos(np.pi*valor))
           Xfinal[k,j] =  np.random.normal(test , sigma )
         if(FES < maxFES):
           fcalc = fobj(Xfinal[k,:])
