@@ -16,6 +16,8 @@ def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X,FIX):
   maxPAR,minPAR,maxFES,FES,gen = tunePAR 
   cont = 0
   dim = len(X[0,:])
+  fitness = [fobj(ind) for ind in X]
+  FES = FES + popsize
 
   while(nseq < FIX):
     FES = FES+1
