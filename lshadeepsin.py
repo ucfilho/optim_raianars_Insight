@@ -90,12 +90,14 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
           best = newX
           fbest = fnew
 
-  
+    '''
     sumF= sum(deltaF)
     if(sumF == 0):
       w =np.ones(popsize)
     else:
       w =  np.asarray([fi/sumF for fi in deltaF])
+    '''
+    w =np.ones(len(SF))
     
     LehmerSF = np.dot(w,SF*SF)/np.dot(w,SF)
     LehmerSCR = np.dot(w,SCR*SCR)/np.dot(w,SCR)
