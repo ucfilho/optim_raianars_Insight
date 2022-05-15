@@ -109,10 +109,10 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
           #print('sigma=',sigma)
           Xfinal[k,j] =  np.random.normal(test , sigma )
           for j in range(dim):
-            if(Xfinal[k,j]>MAX[ind]):
-              Xfinal[k,j] = MAX[ind]
-            if(Xfinal[k,j]<MIN[ind]):
-              Xfinal[k,j] = MIN[ind] 
+            if(Xfinal[k,j]>MAX[j]):
+              Xfinal[k,j] = MAX[j]
+            if(Xfinal[k,j]<MIN[j]):
+              Xfinal[k,j] = MIN[j] 
         if(FES < maxFES):
           fcalc = fobj(Xfinal[k,:])
           FES = FES + 1
