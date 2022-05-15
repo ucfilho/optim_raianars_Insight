@@ -24,7 +24,7 @@ def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X,FIX):
     tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
     for j in range(dim):
       #stdWALK = 0.5*(minPAR/(minPAR+cont))**2*np.random.rand()*best[j]
-      stdWALK = 1/10*np.random.rand()*best[j]
+      stdWALK = np.abs(1/10*np.random.rand()*best[j])
       afterWALK = np.random.normal(best[j] ,stdWALK )
       if(afterWALK > MAX[j]): afterWALK = MAX[j]
       if(afterWALK < MIN[j]): afterWALK = MIN[j]
