@@ -39,4 +39,23 @@ def randomWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X):
       best = trial
     if (cont > popsize): cont = 0
   # tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
-  return FES,X,best,fbest
+
+  fitness = np.asarray([fobj(ind) for ind in X]) # I guess this  line can be deleted
+  FES = FES + popsize    # I guess this line  can be deleted
+  best_idx = np.argmin(fitness)
+  best = X[best_idx]
+  fobj_best = fitness[best_idx]
+
+  
+  y=fitness
+  Num = popsize
+  BEST=best
+  FOBEST=fobj_best
+  XY= np.c_[X,y] #concatena x e y em 2 colunas            
+  XYsorted = XY[XY[:,-1].argsort()] #Ordena a partir da last col(Y) for all row
+  x=XYsorted[:,0:Num]
+  XY=XYsorted
+  BEST_XY =np.append(BEST,FOBEST)
+
+
+  return X,best,FOBEST,XY,BEST_XY, FES
