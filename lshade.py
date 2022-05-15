@@ -105,7 +105,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
           test =MIN[j]+r*(MAX[j]-MIN[j])
           print('test',test)
           valor =(k+1) /(2*NP) *(test -best[j])
-          sigma= np.cos(np.pi*valor)
+          sigma= np.abs(np.cos(np.pi*valor))
           print('sigma=',sigma)
           Xfinal[k,j] =  np.random.normal(test , sigma )
           for j in range(dim):
