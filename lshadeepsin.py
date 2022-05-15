@@ -101,7 +101,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
     
     LehmerSF = np.dot(w,SF*SF)/np.dot(w,SF)
     LehmerSCR = np.dot(w,SCR*SCR)/np.dot(w,SCR)
-    LehmerSFreq = np.dot(w,SFreq*SFreq)/np.dot(w,SFreq)
+    LehmerFreq = np.dot(w,SFreq*SFreq)/np.dot(w,SFreq)
     miF= np.append(miF,LehmerSF)
     miCR= np.append(miCR,LehmerSCR)
     miFreq= np.append(miFreq,LehmerFreq)
