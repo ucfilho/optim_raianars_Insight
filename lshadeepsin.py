@@ -30,8 +30,9 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
   best = X[best_idx]
   fbest = fitness[best_idx]
   Gmax =1000 #?
+    
 
-  if(NP >= NPmin):
+  if(popsize >= NPmin):
     
     mi_F_gen = random.choice(mi_F)
     mi_CR_gen = random.choice(mi_CR)
@@ -103,7 +104,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
     miFreq= np.append(miFreq,LehmerFreq)
     
 
-  if(NP <= NPmin ): # using random walking to conclude
+  if(popsize <= NPmin ): # using random walking to conclude
     Xfinal=np.zeros((NP,dim)) # X is Frannk population
     sigma=np.zeros((NP,dim)) 
     FES = FES + 1
