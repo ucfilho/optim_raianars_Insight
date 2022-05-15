@@ -108,6 +108,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
     
 
   if(popsize <= NPmin ): # using random walking to conclude
+    NP = popsize
     Xfinal=np.zeros((NP,dim)) # X is Frannk population
     sigma=np.zeros((NP,dim)) 
     FES = FES + 1
