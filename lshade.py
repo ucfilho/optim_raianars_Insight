@@ -102,8 +102,9 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
         individual = individual + 1
         for j in range(dim):
           r=np.random.random()
-          test =r*(MAX[j]-MIN[j])+MIN[j]
-          valor =(k+1) /(2*NP) *(test -best[k,j])
+          test =MIN[j]+r*(MAX[j]-MIN[j])
+          print('test',test)
+          valor =(k+1) /(2*NP) *(test -best[k])
           sigma= np.cos(np.pi*valor)
           Xfinal[k,j] =  np.random.normal(test , sigma )
           for j in range(dim):
