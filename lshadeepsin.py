@@ -11,7 +11,7 @@ import numpy as np
 import scipy.stats
 import random
 
-def de(MAX,MIN,gen,popsize,fobj,X,fitness,method,SF,mi_F,SCR,mi_CR):
+def de(MAX,MIN,gen,FES,popsize,fobj,X,fitness,method):
   # you need to return to main code 
   #       return X,BEST,FOBEST,XY,BEST_XY,SF,SCR,SFreq,miF,miCR,miFreq
   # main code need to define before change generations 
@@ -24,7 +24,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method,SF,mi_F,SCR,mi_CR):
   #         use in main code: popsize, FES, gen = tuneEVAL
   
   p = 0.1; c = 0.1; H = 5;frq = 1.0;# frq = 1???
-  NPmax,NPmin,maxFES,FES = method
+  NPmax,NPmin,maxFES,FES,SF,SR,SFreq = method
   dim = len(X[0,:])
   best_idx = np.argmin(fitness) # not using the best anymore but a random best
   best = X[best_idx]
