@@ -65,7 +65,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
 
       mut = F_values[i]
       crossp = CR_values[i]
-      idxs = [idx for idx in range(popsize) if idx != j]
+      idxs = [idx for idx in range(popsize) if idx != i]
       a, b, c = X[np.random.choice(idxs, 3, replace = False)]
       mutant = X[i,:]+mut*(best_selection-X[i,:]) + mut * (b - c)
 
