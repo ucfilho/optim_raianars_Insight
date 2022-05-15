@@ -24,7 +24,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
   #         use in main code: popsize, FES, gen = tuneEVAL
   
   p = 0.1; c = 0.1; 
-  NPmax,NPmin,maxFES,FES,SF,SCR,SFreq,miValues = method
+  NPmax,NPmin,maxFES,FES,SF,SCR,miValues = method
   dim = len(X[0,:])
   best_idx = np.argmin(fitness) # not using the best anymore but a random best
   best = X[best_idx]
