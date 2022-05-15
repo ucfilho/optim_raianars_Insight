@@ -57,10 +57,13 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
     for i in range(popsize):
       rnd= np.random.uniform()
       best_number = int(p*popsize*rnd)
+      if(best_number<1):
+        best_number = 1
       ind =np.argpartition(fitness, -best_number)[-best_number:] # find index of best p*popsize
       best_idx = random.choice(ind) # index of the best in p*popsize*rnd (random best)
       best_selection = X[best_idx]
-
+      best_idx = np.argmin(fitness) # not using the best anymore but a random best
+      best = X[best_idx]
       mut = F_values[i]
       crossp = CR_values[i]
       idxs = [idx for idx in range(popsize) if idx != i]
