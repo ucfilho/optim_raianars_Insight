@@ -51,7 +51,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
           Fig = 0.5*(np.sin(2*np.pi*frq*gen)*(gen+1)/Gmax+1.0)
         F_values.append(Fig)
     else:
-      mi_F_gen = random.choice(mi_F)
+      mi_F_gen = random.choice(miF)
       F_values= scipy.stats.cauchy.rvs(loc=mi_F_gen, scale=0.1, size=popsize)
       F_values=  np.clip(F, 1.0, 3.0)
 
