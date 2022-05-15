@@ -103,10 +103,10 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
         for j in range(dim):
           r=np.random.random()
           test =MIN[j]+r*(MAX[j]-MIN[j])
-          print('test',test)
+          #print('test',test)
           valor =(k+1) /(2*NP) *(test -best[j])
           sigma= np.abs(np.cos(np.pi*valor))
-          print('sigma=',sigma)
+          #print('sigma=',sigma)
           Xfinal[k,j] =  np.random.normal(test , sigma )
           for j in range(dim):
             if(Xfinal[k,j]>MAX[ind]):
