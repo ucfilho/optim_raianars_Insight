@@ -22,7 +22,6 @@ def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X,FIX):
     trial = np.copy(X[cont,:])
     cont = cont + 1
     tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
-    flag = checkRES(FES,maxFES)
     for j in range(dim):
       #stdWALK = 0.5*(minPAR/(minPAR+cont))**2*np.random.rand()*best[j]
       stdWALK = 1/10*np.random.rand()*best[j]
