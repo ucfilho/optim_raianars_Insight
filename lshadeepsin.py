@@ -144,7 +144,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
   XY= np.c_[X,y] #concatena x e y em 2 colunas            
   XYsorted = XY[XY[:,-1].argsort()] #Ordena a partir da last col(Y) for all row
   XY=XYsorted
-  BEST_XY =np.append(BEST,FOBEST)
+  BEST_XY =np.append(BEST,FBEST)
   calc = (NPmin-NPmax)/maxFES*FES+NPmax # Linear Population Size Reduction (LPSR)
   NP = int(np.round(calc)) # Linear Population Size Reduction (LPSR) 
   gen = gen + 1
