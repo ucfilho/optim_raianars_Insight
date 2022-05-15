@@ -28,7 +28,8 @@ def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X,FIX):
       afterWALK = np.random.normal(best[j] ,stdWALK )
       if(afterWALK > MAX[j]): afterWALK = MAX[j]
       if(afterWALK < MIN[j]): afterWALK = MIN[j]
-      trial[j] = np.asarray(afterWALK)
+      trial[j] = afterWALK
+    trial = np.asarray(trial)
     f = fobj[trial]
     if(f < fbest): 
       X[cont-1,:] = trial
