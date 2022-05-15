@@ -139,4 +139,4 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
   gen = gen + 1
   tuneEVAL= [NP,FES,gen]
 
-  return X,BEST,FBEST,XY,BEST_XY,tuneEVAL,SF,SCR,SFreq,miF,miCR,miFreq
+  return X,BEST,FBEST,XY,BEST_XY,tuneEVAL,SF,SCR,miF,miCR
