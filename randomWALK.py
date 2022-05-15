@@ -15,7 +15,8 @@ def randomWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X):
     else:
       flag = False
     return flag
-
+  
+  maxPAR,minPAR,maxFES,FES,gen = tunePAR 
   cont = 0
   dim = len(X[0,:])
   flag = checkRES(FES,maxFES)
