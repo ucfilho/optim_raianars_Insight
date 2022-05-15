@@ -112,6 +112,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
     sigma=np.zeros((NP,dim)) 
     FES = FES + 1
     individual = -1
+    NP = popsize
 
     while(FES < maxFES):
       for k in range(NP):
