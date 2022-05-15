@@ -87,7 +87,7 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
         SFreq=np.append(SFreq,freq[i])
         
         if(fnew < fbest):
-          best = newX
+          best = mutant
           fbest = fnew
 
     '''
