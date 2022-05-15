@@ -30,7 +30,7 @@ def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X,FIX):
       if(afterWALK < MIN[j]): afterWALK = MIN[j]
       trial[j] = afterWALK
 
-    f = fobj[trial]
+    f = fobj(trial)
     if(f < fbest): 
       X[cont-1,:] = trial
       fbest = f
