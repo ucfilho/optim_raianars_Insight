@@ -24,19 +24,20 @@ def de(MAX,MIN,gen,popsize,fobj,X,fitness,method):
   #         use in main code: popsize, FES, gen = tuneEVAL
   
   p = 0.1; c = 0.1; H = 5;frq = 1.0;# frq = 1???
-  NPmax,NPmin,maxFES,FES,SF,SR,SFreq = method
+  NPmax,NPmin,maxFES,FES,SF,SR,SFreq,miValues = method
   dim = len(X[0,:])
   best_idx = np.argmin(fitness) # not using the best anymore but a random best
   best = X[best_idx]
   fbest = fitness[best_idx]
   Gmax =1000 #?
-    
+  miF, miCR, miFreq= miValues
 
   if(popsize >= NPmin):
     
-    mi_F_gen = random.choice(mi_F)
-    mi_CR_gen = random.choice(mi_CR)
-    freq = scipy.stats.cauchy.rvs(loc=mi_F_gen, scale=0.1, size=popsize)
+    mi_F_gen = random.choice(miF)
+    mi_CR_gen = random.choice(miCR)
+    mi_Freq_gen = random.choice(miFreq)
+    freq = scipy.stats.cauchy.rvs(loc=mi_Freq_gen, scale=0.1, size=popsize)
     freq =  np.clip(freq, 1.0, 3.0)
     CR_values = np.random.normal(mi_CR_gen , 0.1,popsize )
 
