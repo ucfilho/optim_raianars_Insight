@@ -35,7 +35,7 @@ def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X,FIX):
       X[cont-1,:] = trial
       fbest = f
       best = trial
-    if (cont > popsize): cont = 0
+    if (cont >= popsize): cont = 0
     nseq = nseq + 1
   # tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
 
