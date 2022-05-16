@@ -44,6 +44,7 @@ def randomWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X):
 
   #fitness = np.asarray([fobj(ind) for ind in X]) # I guess this  line can be deleted
   #FES = FES + popsize    # I guess this line  can be deleted
+  fitness = [fobj(ind) for ind in X]
   best_idx = np.argmin(fitness)
   best = X[best_idx]
   fobj_best = fitness[best_idx]
