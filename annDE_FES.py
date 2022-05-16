@@ -30,7 +30,7 @@ def de(MAX,MIN, mut, crossp, popsize, its,fobj,X,FES):
     bounds[i]=(MIN[i], MAX[i])
 
   fitness = np.asarray([fobj(ind) for ind in X])
-  FES = FES + popsize
+  # FES = FES + popsize
   best_idx = np.argmin(fitness)
   best = X[best_idx]
   
