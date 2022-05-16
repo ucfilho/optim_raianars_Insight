@@ -11,8 +11,8 @@ import numpy as np
 
 def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,X,FIX):
     
-  print("==================")
-  print(FES)
+  #print("==================")
+  #print(FES)
 
   # FIX = 100 # Number of adjusts main code
   nseq = 0
