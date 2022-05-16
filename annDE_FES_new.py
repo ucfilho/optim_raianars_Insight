@@ -38,7 +38,7 @@ def de(MAX,MIN, mut, crossp, popsize, its,fobj,fitness,X,FES):
         if(mutant[k]>MAX[k]):
           mutant[k]=MAX[k]
         if(mutant[k]<MIN[k]):
-          mutant[k]=(MIN[k] +mutant[k])/2  
+          mutant[k]=(MAX[k] +mutant[k])/2  
         if(mutant[k]<MIN[k]):
           mutant[k]= MIN[k] 
         
