@@ -62,10 +62,10 @@ def de(MAX,MIN, mut, crossp, popsize, its,fobj,X,FES):
       best = trial
 
     fitness = np.asarray([fobj(ind) for ind in X])
-    FES = FES + popsize
+    #FES = FES + popsize
 
   fitness = np.asarray([fobj(ind) for ind in X])
-  FES = FES + popsize
+  #FES = FES + popsize
   best_idx = np.argmin(fitness)
   best = X[best_idx]
   fobj_best = fitness[best_idx]
