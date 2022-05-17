@@ -23,7 +23,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
         if(afterWALK > MAX[j]): afterWALK = MAX[j]
         if(afterWALK < MIN[j]): afterWALK = MIN[j]
 
-     X[i,j] = afterWALK
+    X[i,j] = afterWALK
        
   y=fitness
   Num = popsize
