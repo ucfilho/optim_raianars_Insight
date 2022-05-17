@@ -43,7 +43,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
       best_idx = np.argmin(fitness)
       new_best = X[best_idx]
       new_fbest = fitness[best_idx]
-      if( fobj_best < fbest):
+      if( new_fbest < fbest):
         fbest = new_fbest
         best = new_best
       else:
