@@ -16,7 +16,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
 
   while(keepFLOW):
     FES = FES+1
-    trial = np.copy(X[cont,:])
+    #trial = np.copy(X[cont,:])
     cont = cont + 1
     tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
     for i in range(popsize):
