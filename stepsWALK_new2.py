@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-"""stepsWALK_new2.ipynb
-
 import numpy as np 
 
 def fixWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X,FIX):
