@@ -55,7 +55,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
   y=fitness
   Num = popsize
   BEST=best
-  FOBEST=fobj_best
+  FOBEST=fbest
   XY= np.c_[X,y] #concatena x e y em 2 colunas            
   XYsorted = XY[XY[:,-1].argsort()] #Ordena a partir da last col(Y) for all row
   x=XYsorted[:,0:Num]
