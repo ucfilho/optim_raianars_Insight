@@ -6,12 +6,9 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
   #print(FES)
 
   # FIX = 100 # Number of adjusts main code
-  nseq = 1
+  nseq = 0
   maxPAR,minPAR,maxFES,FES,gen = tunePAR 
-  cont = 0
   dim = len(X[0,:])
-  #fitness = [fobj(ind) for ind in X]
-  #FES = FES + popsize
   keepFLOW = True
 
   while(keepFLOW):
@@ -21,10 +18,8 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
     tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
     for i in range(popsize):
       for j in range(dim):
-        #stdWALK = 0.5*(minPAR/(minPAR+cont))**2*np.random.rand()*best[j]
-        #stdWALK = ((1/10*np.random.rand()*best[j])**2)**0.5
         r = np.log(nseq+2)/(nseq+2)
-        stdWALK = np.abs(r*(X[i,j]-best[j]))*np.random.rand()
+        stdWALK = np.abs(r*(X[i,j]-best[j]))*(np.random.rand())**2
         afterWALK = np.random.normal(best[j] ,stdWALK )
         if(afterWALK > MAX[j]): afterWALK = MAX[j]
         if(afterWALK < MIN[j]): afterWALK = MIN[j]
@@ -48,10 +43,12 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
         best = new_best
       else:
         X[0,:] = best
-    nseq = nseq + 1
-  
-
-  
+        
+    nseq = nseq + 1   
+    
+    if(nseq > popsize):
+        keepFLOW = False
+       
   y=fitness
   Num = popsize
   BEST=best
