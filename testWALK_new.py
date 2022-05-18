@@ -24,15 +24,29 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X,FES):
         if(afterWALK < MIN[j]): afterWALK = MIN[j]
 
     X[i,j] = afterWALK
-       
+    
+  FES =FES + popsize 
   
+  fitness = np.asarray([fobj(ind) for ind in X])
+  best_idx = np.argmin(fitness)
+  bestX = X[best_idx]
+  fobj_best = fitness[best_idx]
+  if(fbest > fobj_best):
+    fbest = fobj_best
+    best = bestX
+    FOBEST = fobj_best
+  else:
+    X[best_idx] = best
+    fitness[best_idx] =  fbest
+    FOBEST = fbest
+    
+
   y=fitness
-  Num = popsize
   BEST=best
   FOBEST=fbest
   XY= np.c_[X,y] #concatena x e y em 2 colunas            
   XYsorted = XY[XY[:,-1].argsort()] #Ordena a partir da last col(Y) for all row
-  x=XYsorted[:,0:Num]
+  x=XYsorted[:,0:popsize]
   XY=XYsorted
   BEST_XY =np.append(BEST,FOBEST)
   
