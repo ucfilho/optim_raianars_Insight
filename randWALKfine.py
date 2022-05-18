@@ -19,6 +19,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X,FES):
     for j in range(dim):
         r = np.log(i+2)/(i+2)
         stdWALK = np.abs(r*(X[i,j]-best[j]))*(np.random.rand())**4
+        if( stdWALK  < 1e-8 ): stdWALK = 1e-4
         afterWALK = np.random.normal(best[j] ,stdWALK )
         if(afterWALK > MAX[j]): afterWALK = MAX[j]
         if(afterWALK < MIN[j]): afterWALK = MIN[j]
