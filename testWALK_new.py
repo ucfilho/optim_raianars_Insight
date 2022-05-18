@@ -1,12 +1,12 @@
 import numpy as np 
 
-def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
+def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X,FES):
     
   #print("==================")
   #print(FES)
 
   # FIX = 100 # Number of adjusts main code
-  nseq = 0
+  '''
   maxPAR,minPAR,maxFES,FES,gen = tunePAR 
   dim = len(X[0,:])
   keepFLOW = True
@@ -25,6 +25,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
 
     X[i,j] = afterWALK
        
+  '''
   y=fitness
   Num = popsize
   BEST=best
@@ -34,6 +35,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X):
   x=XYsorted[:,0:Num]
   XY=XYsorted
   BEST_XY =np.append(BEST,FOBEST)
-
+  
+  
 
   return fitness,X,best,FOBEST,XY,BEST_XY, FES
