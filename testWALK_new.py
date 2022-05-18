@@ -6,7 +6,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X,FES):
   #print(FES)
 
   # FIX = 100 # Number of adjusts main code
-  '''
+  
   maxPAR,minPAR,maxFES,FES,gen = tunePAR 
   dim = len(X[0,:])
   keepFLOW = True
@@ -25,7 +25,7 @@ def randWALK(fobj,best,fbest,popsize,tunePAR,MAX,MIN,fitness,X,FES):
 
     X[i,j] = afterWALK
        
-  '''
+  
   y=fitness
   Num = popsize
   BEST=best
