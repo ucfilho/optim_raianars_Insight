@@ -44,8 +44,8 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
       pbest = X[best_idx] # random best 
       idxs = [idx for idx in range(popsize) if idx != i]
       a  = X[np.random.choice(idxs, 1, replace = False)]
-      #Xnew = np.append(X,Xarq,axis=0)
-      Xnew = X
+      Xnew = np.append(X,Xarq,axis=0)
+      #Xnew = X
       idxs2 = [idx for idx in range(popsize+len(Xarq[:,0])) if idx != idxs]
       b  = Xnew[np.random.choice(idxs2, 1, replace = False)]
 
