@@ -39,7 +39,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
         mut = scipy.stats.cauchy.rvs(loc=miF, scale=0.1)
         if (mut > 0):
           break
-      if(i==popsize-1): print(mut,crossp,'=====')  
+      # if(i==popsize-1): print(mut,crossp,'=====')  
       ind = fitness.argsort()[range(best_number)] # find index of best p*popsize
       best_idx = random.choice(ind) # index of the best in p*popsize (random best)
       pbest = X[best_idx] # random best 
@@ -50,7 +50,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
         Xnew = np.append(X,Xii,axis=0)
       else:
         Xnew=np.copy(X)
-
+      if(i==popsize-1): print(fbest,mut,crossp,'=====') 
       #idxs2 = [idx for idx in range(popsize+len(Xarq[:,0])) if idx != idxs]
       idxs2 = [idx for idx in range(popsize) if idx != idxs]
       b  = Xnew[np.random.choice(idxs2, 1, replace = False)]
