@@ -56,13 +56,13 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
       b  = Xnew[np.random.choice(idxs2, 1, replace = False)]
 
       mutant = X[i,:]+mut*(pbest-X[i,:]) + mut * (a - b)
-      
+      '''
       for k in range(dim):
         if(mutant[k]>MAX[k]):
           mutant[k]=MAX[k]
         if(mutant[k]<MIN[k]):
           mutant[k]=MIN[k]
-        
+      '''  
         
       cross_points = np.random.rand(dim) < crossp
       
@@ -73,13 +73,13 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
 
       trial = np.where(cross_points, mutant, X[i,:])
       mutant[i,:] = trial 
-      
+      '''
       for k in range(dim):
         if(mutant[i,k]>MAX[k]):
           mutant[i,k]=MAX[k]
         if(mutant[i,k]<MIN[k]):
           mutant[i,k]=MIN[k]
-        
+      '''  
     mutant[i,:] = trial  
     FES = FES + 1
     fmutant[i] = fobj(mutant[i,:])
