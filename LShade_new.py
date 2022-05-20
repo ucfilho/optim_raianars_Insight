@@ -68,7 +68,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
           Xarq=np.append(Xarq,Xold)
         else:
           ri = random.randint(0, Narquive-1) # deleting individuals if necessary line 19
-          Xarq[ri] = Xold
+          Xarq[ri,:] = Xold
         #Xarq[i,:] = Xold  # need better discussion
         SCR.append(crossp)
         SF.append(mut)
