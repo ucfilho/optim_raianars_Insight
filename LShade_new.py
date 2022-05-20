@@ -27,7 +27,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
   while(termination_not_meet):
     SCR =[];SF=[];
     for i in range(popsize):
-      ri = random.randint(range(H)) # line 7
+      ri = random.randint(0,H-1) # line 7
       miF = MF[ri]
       miCR = MCR[ri]
       if(MCR[ri] == terminal):
