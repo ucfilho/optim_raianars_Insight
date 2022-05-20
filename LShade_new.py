@@ -13,7 +13,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
   #p=0.1
   #Narquive = popsize
   #Xarq = [] # just to initialize
-  mutant= np.copy(X) # just to initialize mutants Uij
+  mutant= np.copy(X[0,:]) # just to initialize mutants Uij
   fmutant = np.copy(fitness) # just to initialize fobj(Uij)
   fx=[]; fu=[] # to select the wij Lehmer Mean.
   # setTUNE = [SF,SCR,MF,MCR,FES,p] 
