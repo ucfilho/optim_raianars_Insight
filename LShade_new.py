@@ -3,7 +3,7 @@ import numpy as np
 import scipy.stats
 import random
 
-def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,FES):
+def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
 
   SF,SCR,MF,MCR,p, terminal, Narquive = setTUNE
   # return X,BEST,FOBEST,XY,BEST_XY,FES
@@ -12,16 +12,15 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,FES):
   #terminal = 0.1
   #p=0.1
   #Narquive = popsize
-  Xarq = [] # just to initialize
+  #Xarq = [] # just to initialize
   mutant= np.copy(X) # just to initialize mutants Uij
   fmutant = np.copy(fitness) # just to initialize fobj(Uij)
   fx=[]; fu=[] # to select the wij Lehmer Mean.
   # setTUNE = [SF,SCR,MF,MCR,FES,p] 
 
   best_number = int(p*popsize)
-  for i in range(H):
-    MCR.append(0.5);MF.append(0.5) # line 3
-  A = [] # line 3
+
+  
   
   termination_not_meet = True
 
@@ -91,7 +90,8 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,FES):
       MCR = MCR
       MF = MF
   termination_not_meet = False  
-  #setTUNE =[SF,SCR,MF,MCR,p, terminal, Narquive]
+  
+  setTUNE =[SF,SCR,MF,MCR,p, terminal, Narquive]
 
   y=fitness
 
@@ -105,4 +105,4 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,FES):
   
 
   
-  return fitness,X,BEST,FOBEST,XY,BEST_XY,FES
+  return fitness,X,BEST,FOBEST,XY,BEST_XY,FES,Xarq,setTUNE
