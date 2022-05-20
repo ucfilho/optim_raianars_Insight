@@ -104,7 +104,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
   FOBEST=fbest
   XY= np.c_[X,y] #concatena x e y em 2 colunas            
   XYsorted = XY[XY[:,-1].argsort()] #Ordena a partir da last col(Y) for all row
-  X=XYsorted[:,0:Num]
+  X=XYsorted[:,0:popsize]
   XY=XYsorted
   BEST_XY =np.append(BEST,FOBEST)
   
