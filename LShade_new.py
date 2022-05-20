@@ -17,7 +17,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
   fmutant = np.copy(fitness) # just to initialize fobj(Uij)
   fx=[]; fu=[] # to select the wij Lehmer Mean.
   # setTUNE = [SF,SCR,MF,MCR,FES,p] 
-
+  dim = len(X[0,:])
   best_number = int(p*popsize)
 
   
@@ -56,8 +56,33 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
       b  = Xnew[np.random.choice(idxs2, 1, replace = False)]
 
       mutant[i,:] = X[i,:]+mut*(pbest-X[i,:]) + mut * (a - b)
-      FES = FES + 1
-      fmutant[i] = fobj(mutant[i,:])
+      
+     for k in range(dim):
+      if(mutant[k]>MAX[k]):
+        mutant[k]=MAX[k]
+      if(mutant[k]<MIN[k]):
+        mutant[k]=MIN[k]
+        
+        
+     cross_points = np.random.rand(dimensions) < crossp
+      
+     #print('===== 2 =====',cross_points)
+      
+     if not np.any(cross_points):
+      cross_points[np.random.randint(0, dimensions)] = True
+
+     trial = np.where(cross_points, mutant, X[j,:])
+     mutant[i,:] = trial 
+      
+    for k in range(dim):
+      if(mutant[k]>MAX[k]):
+        mutant[k]=MAX[k]
+      if(mutant[k]<MIN[k]):
+        mutant[k]=MIN[k]
+        
+    mutant[i,:] = trial  
+    FES = FES + 1
+    fmutant[i] = fobj(mutant[i,:])
 
 
     for i in range(popsize):
