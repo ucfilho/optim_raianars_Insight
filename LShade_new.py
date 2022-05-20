@@ -64,7 +64,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
           mutant[i,k]=MIN[k]
         
         
-      cross_points = np.random.rand(dimensions) < crossp
+      cross_points = np.random.rand(dim) < crossp
       
       #print('===== 2 =====',cross_points)
       
