@@ -65,7 +65,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
         X[i,:] = X[i,:] # it is not necessary this line but just to remeber it
       if( fmutant[i]  < fitness[i]):
         if(len(Xarq[:,0])< Narquive):
-          Xarq=np.append(Xarq,Xold)
+          Xarq=np.append(Xarq,Xold,axis=0)
         else:
           ri = random.randint(0, Narquive-1) # deleting individuals if necessary line 19
           Xarq[ri,:] = Xold
