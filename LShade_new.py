@@ -58,10 +58,10 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
       mutant[i,:] = X[i,:]+mut*(pbest-X[i,:]) + mut * (a - b)
       
       for k in range(dim):
-        if(mutant[k]>MAX[k]):
-          mutant[k]=MAX[k]
-        if(mutant[k]<MIN[k]):
-          mutant[k]=MIN[k]
+        if(mutant[i,k]>MAX[k]):
+          mutant[i,k]=MAX[k]
+        if(mutant[i,k]<MIN[k]):
+          mutant[i,k]=MIN[k]
         
         
       cross_points = np.random.rand(dimensions) < crossp
@@ -75,10 +75,10 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
       mutant[i,:] = trial 
       
       for k in range(dim):
-        if(mutant[k]>MAX[k]):
-          mutant[k]=MAX[k]
-        if(mutant[k]<MIN[k]):
-          mutant[k]=MIN[k]
+        if(mutant[i,k]>MAX[k]):
+          mutant[i,k]=MAX[k]
+        if(mutant[i,k]<MIN[k]):
+          mutant[i,k]=MIN[k]
         
     mutant[i,:] = trial  
     FES = FES + 1
