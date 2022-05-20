@@ -83,8 +83,8 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
       '''  
     #mutant[i,:] = trial  
     FES = FES + 1
-    #fmutant[i] = fobj(mutant[i,:])
-    fmutant[i] = fobj(mutant)
+    fmutant[i] = fobj(mutant[i,:])
+    #fmutant[i] = fobj(mutant)
 
 
     for i in range(popsize):
