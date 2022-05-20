@@ -105,4 +105,4 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,FES):
   
 
   
-  return X,BEST,FOBEST,XY,BEST_XY,FES
+  return fitness,X,BEST,FOBEST,XY,BEST_XY,FES
