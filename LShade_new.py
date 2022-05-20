@@ -72,7 +72,8 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
         cross_points[np.random.randint(0, dim)] = True
 
       trial = np.where(cross_points, mutant, X[i,:])
-      mutant[i,:] = trial 
+      #mutant[i,:] = trial 
+      mutant  = trial 
       '''
       for k in range(dim):
         if(mutant[i,k]>MAX[k]):
