@@ -5,7 +5,7 @@ import random
 
 def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
 
-  SF,SCR,MF,MCR,p, terminal, Narquive = setTUNE
+  SF,SCR,MF,MCR,p, terminal, Narquive,H = setTUNE
   # return X,BEST,FOBEST,XY,BEST_XY,FES
   #H = 6
   #kH = 0 # kH is used to work with H  
@@ -91,7 +91,7 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
       MF = MF
   termination_not_meet = False  
   
-  setTUNE =[SF,SCR,MF,MCR,p, terminal, Narquive]
+  setTUNE =[SF,SCR,MF,MCR,p, terminal, Narquive,H]
 
   y=fitness
 
