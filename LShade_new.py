@@ -82,10 +82,12 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
           mutant[i,k]=MIN[k]
       '''  
     #mutant[i,:] = trial  
-    print('===',i,mutant)
+    #print('===',i,mutant)
     FES = FES + 1
     fmutant[i] = fobj(mutant[i,:])
-    print(fmutant[i],'====')
+    print('====')
+    print(fmutant)
+    print('====')
     #fmutant[i] = fobj(mutant)
 
 
