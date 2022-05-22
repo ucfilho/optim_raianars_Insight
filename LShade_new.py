@@ -6,25 +6,15 @@ import random
 def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
 
   SF,SCR,MF,MCR,p, terminal, Narquive,H = setTUNE
-  # return X,BEST,FOBEST,XY,BEST_XY,FES
-  #H = 6
-  #kH = 0 # kH is used to work with H  
-  #terminal = 0.1
-  #p=0.1
-  #Narquive = popsize
-  #Xarq = [] # just to initialize
-  mutant= np.copy(X[0,:]) # just to initialize mutants Uij
-  fmutant = np.copy(fitness) # just to initialize fobj(Uij)
+  fmutant = []
+  Xmutant = []
   fx=[]; fu=[] # to select the wij Lehmer Mean.
-  # setTUNE = [SF,SCR,MF,MCR,FES,p] 
-  dim = len(X[0,:])
+  # setTUNE = [SF,SCR,MF,MCR,p, terminal, Narquive,H] 
+  dim = X.shape[1]
   best_number = int(p*popsize)
 
-  
-  
-  termination_not_meet = True
   justGoOUT=1
-  #while(termination_not_meet):
+
   if(justGoOUT==1):
     SCR =[];SF=[];
     for i in range(popsize):
@@ -39,76 +29,69 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
         mut = scipy.stats.cauchy.rvs(loc=miF, scale=0.1)
         if (mut > 0):
           break
-      # if(i==popsize-1): print(mut,crossp,'=====')  
+
       ind = fitness.argsort()[range(best_number)] # find index of best p*popsize
       best_idx = random.choice(ind) # index of the best in p*popsize (random best)
       pbest = X[best_idx] # random best 
       idxs = [idx for idx in range(popsize) if idx != i]
-      a  = X[np.random.choice(idxs, 1, replace = False)]
+      iused = np.random.choice(idxs, 1, replace = False)
+      idxs = [idx for idx in range(popsize) if (idx != iused and idx != best_idx)]
+      a  = X[iused]
       if(len(Xarq)>0):
         Xii = np.asarray(Xarq)
-        Xnew = np.append(X,Xii,axis=0)
+        Xnew = np.append(X[idxs,:],Xii,axis=0)
       else:
-        Xnew=np.copy(X)
-      if(i==popsize-1): print(fbest,mut,crossp,'=====') 
-      #idxs2 = [idx for idx in range(popsize+len(Xarq[:,0])) if idx != idxs]
-      idxs2 = [idx for idx in range(popsize) if idx != idxs]
+        Xnew=np.copy(X[idxs,:])
+
+      idxs2 = [idx for idx in range(len(Xnew[:,0])) if 2 > 1]
       b  = Xnew[np.random.choice(idxs2, 1, replace = False)]
 
       mutant = X[i,:]+mut*(pbest-X[i,:]) + mut * (a - b)
-      '''
+      mutant = mutant.ravel()
+
+      trial = np.copy(mutant)
+    
+
+
+      for j in range(dim):
+        rdn = np.random.rand()
+        if(rdn < crossp) : 
+          trial[j] = mutant[j] # not necessary but to make clear (trial = np.copy(mutant))
+        else:
+          trial[j] = X[i,j]
+
+      mutant  = np.copy(trial)
+      
       for k in range(dim):
         if(mutant[k]>MAX[k]):
           mutant[k]=MAX[k]
         if(mutant[k]<MIN[k]):
           mutant[k]=MIN[k]
-      '''  
-        
-      cross_points = np.random.rand(dim) < crossp
-      
-      #print('===== 2 =====',cross_points)
-      
-      if not np.any(cross_points):
-        cross_points[np.random.randint(0, dim)] = True
 
-      trial = np.where(cross_points, mutant, X[i,:])
-      #mutant[i,:] = trial 
-      mutant  = trial 
-      '''
-      for k in range(dim):
-        if(mutant[i,k]>MAX[k]):
-          mutant[i,k]=MAX[k]
-        if(mutant[i,k]<MIN[k]):
-          mutant[i,k]=MIN[k]
-      '''  
-    #mutant[i,:] = trial  
-    #print('===',i,mutant)
-    FES = FES + 1
-    fmutant[i] = fobj(mutant[i,:])
-    print('====')
-    print(fmutant)
-    print('====')
-    #fmutant[i] = fobj(mutant)
+      Xmutant.append(mutant)
+
+      FES = FES + 1
+      fmut =fobj(mutant)
+      fmutant.append(fmut)
 
 
     for i in range(popsize):
       if( fmutant[i]  <= fitness[i]):
         Xold = X[i,:] 
-        X[i,:] = mutant[i,:]
+        X[i,:] = Xmutant[i]
         fitness[i]=fmutant[i]
         if(fbest >= fmutant[i]):
-          best = mutant[i,:]
+          best = Xmutant[i]
           fbest = fmutant[i]
       else:
         X[i,:] = X[i,:] # it is not necessary this line but just to remeber it
       if( fmutant[i]  < fitness[i]):
         if(len(Xarq[:,0])< Narquive):
           Xarq=np.append(Xarq,Xold,axis=0)
-          #Xarq = Xarq
         else:
           ri = random.randint(0, Narquive-1) # deleting individuals if necessary line 19
           Xarq[ri,:] = Xold
-        #Xarq[i,:] = Xold  # need better discussion
+
         SCR.append(crossp)
         SF.append(mut)
         fx.append(fitness[i])
@@ -129,20 +112,20 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
     else:
       MCR = MCR
       MF = MF
-  termination_not_meet = False  
   
   setTUNE =[SF,SCR,MF,MCR,p, terminal, Narquive,H]
+  
 
   y=fitness
 
-  BEST=best
-  FOBEST=fbest
+
   XY= np.c_[X,y] #concatena x e y em 2 colunas            
   XYsorted = XY[XY[:,-1].argsort()] #Ordena a partir da last col(Y) for all row
-  X=XYsorted[:,0:popsize]
+  X=XYsorted[:,0:dim]
   XY=XYsorted
+  fitness = XYsorted[:,-1]  
+  BEST=X[0,:]
+  FOBEST=fitness[0]
   BEST_XY =np.append(BEST,FOBEST)
-  
-
   
   return fitness,X,BEST,FOBEST,XY,BEST_XY,FES,Xarq,setTUNE
