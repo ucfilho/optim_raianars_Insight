@@ -11,8 +11,11 @@ def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
   fx=[]; fu=[] # to select the wij Lehmer Mean.
   # setTUNE = [SF,SCR,MF,MCR,p, terminal, Narquive,H] 
   dim = X.shape[1]
-  best_number = int(p*popsize)
-
+  #best_number = int(p*popsize)
+  if (p*popsize<1):
+    best_number=1
+  else:
+    best_number = int(p*popsize)
   justGoOUT=1
 
   if(justGoOUT==1):
