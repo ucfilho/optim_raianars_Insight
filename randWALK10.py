@@ -22,7 +22,7 @@ def randWALK(fobj,best,fbest,popsize,MAX,MIN,fitness,X,FES):
 
   FES = FES+popsize
     
-  tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
+  #tunePAR = [maxPAR,minPAR,maxFES,FES,gen]
   for i in range(popsize):
     for j in range(dim):
         rnd = np.random.rand()
