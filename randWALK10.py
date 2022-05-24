@@ -18,7 +18,7 @@ def randWALK(fobj,best,fbest,popsize,MAX,MIN,fitness,X,FES):
 
   best_idx = np.argmin(fitness)
   bestm = X[best_idx]
-  fbestm = fit[best_idx] 
+  fbestm = fitness[best_idx] 
 
   FES = FES+popsize
     
