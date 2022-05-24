@@ -1,3 +1,7 @@
+import numpy as np
+import scipy.stats
+import random
+
 def LShade(MAX,MIN, popsize,fobj,setTUNE,best,fbest,fitness,X,Xarq,FES):
 
   SF,SCR,MF,MCR,p, terminal, Narquive,H,kH = setTUNE
