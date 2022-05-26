@@ -24,11 +24,12 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
   #setANN =[Fc,Fd,filter1, filter2, filter3]
   # Fo=(f1*Fo+f2*Fa)/f3 # para suavizar
   # f1 = 3; f2 =1; f3 =4
-  Fc= setANN[0] 
-  Fd= setANN[1]
-  filter1 = setANN[2]
-  filter2 = setANN[3]
-  filter3 = setANN[4]
+  RAIN = np.array(setANN)
+  Fc= RAIN[0] 
+  Fd= RAIN[1]
+  filter1 = RAIN[2]
+  filter2 = RAIN[3]
+  filter3 = RAIN[4]
   #Fc,Fd,filter1, filter2, filter3= setANN 
 
   f1 = filter1
