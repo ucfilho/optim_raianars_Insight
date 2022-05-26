@@ -25,6 +25,7 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
   # Fo=(f1*Fo+f2*Fa)/f3 # para suavizar
   # f1 = 3; f2 =1; f3 =4
   RAIN = np.array(setANN)
+  print(RAIN)
   Fc= RAIN[0] 
   Fd= RAIN[1]
   filter1 = RAIN[2]
