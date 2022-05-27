@@ -11,7 +11,9 @@ def GeraIndices(X,setANN,MAT_INDo,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
   
   nrow,ncol=X.shape
   FOBESTm=1e99
-  Fo=MAT_INDo[0,6]    # VALOR Fo   
+  print('=======',MAT_INDo)
+  #Fo=MAT_INDo[0,6]    # VALOR Fo  
+  Fo=MAT_INDo[6]    # VALOR Fo   
   CRo=MAT_INDo[0,7]   # VALOR CRo
   QUANT=17 # quantos indices esta fazendo
   MAT_IND=np.zeros((1,QUANT))
