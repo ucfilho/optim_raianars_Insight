@@ -61,6 +61,7 @@ def GeraIndices(X,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
     MAT_IND[0,3]=1 # o valor de fobj melhora mas menos que duas vezes
   
   # MAT_IND[0,4]  # VELOC X
+  BEST = BESTo
   DELTA=np.amax(abs(BEST-BESTo))
   if( DELTA >REF):
     MAT_IND[0,4]=2 # difere  for i in range(1,len(PARTIC)):
