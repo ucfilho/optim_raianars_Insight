@@ -5,7 +5,7 @@ import Go2Ann
 import pandas as pd
 import numpy as np
 
-def GeraIndices(X,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
+def GeraIndices(X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
                 syn1_F,X_max_F,X_min_F,syn0_CR,syn1_CR,X_max_CR,
                 X_min_CR,fields,Fun):
 
@@ -19,10 +19,16 @@ def GeraIndices(X,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
   MAT_IND=np.zeros((1,QUANT))
 
   REF=0.1 # REFERENCIA DE DIFERENCAS ENTRE OS ELEMENTOS
-  Fitness = 1 # just because we stop to use this function
-  #XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fitness)
-  FOBEST = 10.0
-  FOBESTo = 10.0
+  nrow,ncol=X.shape
+  FOBESTm=1e99
+  Fo=MAT_INDo[0,6]    # VALOR Fo   
+  CRo=MAT_INDo[0,7]   # VALOR CRo
+  QUANT=17 # quantos indices esta fazendo
+  MAT_IND=np.zeros((1,QUANT))
+
+  REF=0.1 # REFERENCIA DE DIFERENCAS ENTRE OS ELEMENTOS
+  #Fitness = np.asarray([Fun(ind) for ind in X])
+  XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fitness)
   #setANN =[Fc,Fd,filter1, filter2, filter3]
   # Fo=(f1*Fo+f2*Fa)/f3 # para suavizar
   # f1 = 3; f2 =1; f3 =4
@@ -38,12 +44,12 @@ def GeraIndices(X,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
   f1 = filter1
   f2 = filter2
   f3 = filter3
+
   soma=0
   for j in range(ncol):
     for i in range(nrow):
         Xj=np.mean(X[:,j])
         soma=soma+(X[i,j]-Xj)**2
-  
   DI=(soma/nrow)**0.5
   DIr=DI/DIo
   MAT_IND[0,0]=DI #dispersao
@@ -52,6 +58,7 @@ def GeraIndices(X,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
 
   V1=FOBESTo
   V2=FOBEST
+
   A=2*V2
   if(V1 > A):
     MAT_IND[0,3]=2 # o valor de fobj torna pelo menos duas vezes melhor
