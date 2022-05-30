@@ -131,9 +131,10 @@ def GeraIndices(eqFRANNK,X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,
 
 
   Fo = eqFRANNK(Fo,1,y_cod_F)
+  print('Fo =',Fo)
   
   CRo = eqFRANNK(CRo,2,y_cod_CR)
-
+  print('CRo =',CRo)
 
   MAT_IND[0,15]=Fo # valor de F que sai da rede
   MAT_IND[0,16]=CRo # valor de CR que sai da rede
