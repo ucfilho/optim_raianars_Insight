@@ -16,12 +16,7 @@ def GeraIndices(eqFRANNK,X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,
   CRo=MAT_INDo[0,7]   # VALOR CRo
   QUANT=17 # quantos indices esta fazendo
   MAT_IND=np.zeros((1,QUANT))
-  
-  Foo = eqFRANNK(0.5,1,1)
-  print('Foo =',Foo)
-  
-  CRoo = eqFRANNK(0.6,2,-1)
-  print('CRoo =',CRoo)
+ 
 
   REF=0.1 # REFERENCIA DE DIFERENCAS ENTRE OS ELEMENTOS
   nrow,ncol=X.shape
@@ -145,4 +140,4 @@ def GeraIndices(eqFRANNK,X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,
   MAT_IND[0,15]=Fo # valor de F que sai da rede
   MAT_IND[0,16]=CRo # valor de CR que sai da rede
   
-  return 
+  return MAT_IND
