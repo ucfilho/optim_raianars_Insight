@@ -45,6 +45,8 @@ def GeraIndices(X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
   f1 = filter1
   f2 = filter2
   f3 = filter3
+  f4 = filter4
+
 
   soma=0
   for j in range(ncol):
