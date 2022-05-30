@@ -11,7 +11,7 @@ def GeraIndices(X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
 
   nrow,ncol=X.shape
   FOBESTm=1e99
-  print('=======',MAT_INDo)
+  #print('=======',MAT_INDo)
   #Fo=MAT_INDo[0,6]    # VALOR Fo  
   Fo=MAT_INDo[0,6]    # VALOR Fo   
   CRo=MAT_INDo[0,7]   # VALOR CRo
