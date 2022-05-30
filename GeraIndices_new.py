@@ -39,6 +39,7 @@ def GeraIndices(X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
   filter1 = RAIN[2]
   filter2 = RAIN[3]
   filter3 = RAIN[4]
+  filter4 = RAIN[5]
   #Fc,Fd,filter1, filter2, filter3= setANN 
 
   f1 = filter1
@@ -134,7 +135,7 @@ def GeraIndices(X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
 
   if(y_cod_F>0):
     Fo=Fo*(1+Fd) #Fo=Fo+Fc
-    Fo=(f1*Fo+f2*Fa)/f3 # para suavizar
+    Fo=(f1*Fo+f2*Fa)/(f1+f2) # para suavizar
     if(Fo<Fa):
       Fo=Fa+0.05
     if(Fo<Fa): # conferir a necessidade de melhorar 
@@ -144,7 +145,7 @@ def GeraIndices(X,Fitness,MAT_INDo,setANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
   
   if(y_cod_CR>0):
     CRo=CRo*(1+Fd) #CRo=CRo+Fc
-    CRo=(3*CRo+CRa)/4 # para suavizar
+    CRo=(f3*CRo+f4*CRa)/(f3+f4) # para suavizar
     if(CRo<CRa):  # conferir a necessidade de melhorar 
       CRo=CRa+0.05
   else:
