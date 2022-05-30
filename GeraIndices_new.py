@@ -5,7 +5,7 @@ import Go2Ann
 import pandas as pd
 import numpy as np
 
-def GeraIndices(X,indANN,MAT_INDo,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
+def GeraIndices(X,MAT_INDo,indANN,BESTo,FOBESTo,DIo,SOMA,TOTAL,syn0_F,
                 syn1_F,X_max_F,X_min_F,syn0_CR,syn1_CR,X_max_CR,
                 X_min_CR,fields,Fun):
   setANN = indANN()
